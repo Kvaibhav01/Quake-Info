@@ -34,6 +34,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.eggheadgames.aboutbox.AboutConfig;
+import com.eggheadgames.aboutbox.IAnalytic;
+import com.eggheadgames.aboutbox.IDialog;
+import com.eggheadgames.aboutbox.activity.AboutActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,6 +136,54 @@ public class EarthquakeActivity extends AppCompatActivity
             // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+
+        /* Add About activity */
+        AboutConfig aboutConfig = AboutConfig.getInstance();
+        aboutConfig.appName = getString(R.string.app_name);
+        aboutConfig.appIcon = R.mipmap.ic_launcher;
+        aboutConfig.version = "1.0.0";
+        aboutConfig.author = "Tolstoy";
+        aboutConfig.aboutLabelTitle = "About App";
+        aboutConfig.packageName = getApplicationContext().getPackageName();
+        aboutConfig.buildType = google ? AboutConfig.BuildType.GOOGLE : AboutConfig.BuildType.AMAZON;
+
+        aboutConfig.facebookUserName = FACEBOOK_USER_NAME;
+        aboutConfig.twitterUserName = TWITTER_USER_NAME;
+        aboutConfig.webHomePage = WEB_HOME_PAGE;
+
+        // app publisher for "Try Other Apps" item
+        aboutConfig.appPublisher = APP_PUBLISHER;
+
+        // if pages are stored locally, then you need to override aboutConfig.dialog to be able use custom WebView
+        aboutConfig.companyHtmlPath = COMPANY_HTML_PATH;
+        aboutConfig.privacyHtmlPath = PRIVACY_HTML_PATH;
+        aboutConfig.acknowledgmentHtmlPath = ACKNOWLEDGMENT_HTML_PATH;
+
+        aboutConfig.dialog = new IDialog() {
+            @Override
+            public void open(AppCompatActivity appCompatActivity, String url, String tag) {
+                // handle custom implementations of WebView. It will be called when user click to web items. (Example: "Privacy", "Acknowledgments" and "About")
+            }
+        };
+
+        aboutConfig.analytics = new IAnalytic() {
+            @Override
+            public void logUiEvent(String s, String s1) {
+                // handle log events.
+            }
+
+            @Override
+            public void logException(Exception e, boolean b) {
+                // handle exception events.
+            }
+        };
+        // set it only if aboutConfig.analytics is defined.
+        aboutConfig.logUiEventName = "Log";
+
+        // Contact Support email details
+        aboutConfig.emailAddress = EMAIL_ADDRESS;
+        aboutConfig.emailSubject = EMAIL_SUBJECT;
+        aboutConfig.emailBody = EMAIL_BODY;
     }
 
     @Override
