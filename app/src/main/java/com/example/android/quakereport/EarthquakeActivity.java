@@ -42,6 +42,9 @@ import com.eggheadgames.aboutbox.activity.AboutActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.onClick;
+
+
 public class EarthquakeActivity extends AppCompatActivity
         implements LoaderCallbacks<List<Earthquake>>,
         SharedPreferences.OnSharedPreferenceChangeListener {
