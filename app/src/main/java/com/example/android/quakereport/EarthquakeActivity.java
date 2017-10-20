@@ -73,6 +73,17 @@ public class EarthquakeActivity extends AppCompatActivity
         Intent intent = new Intent(this, IntroActivity.class);
         startActivity(intent);
 
+        @Override
+                 public void onClick (View v)
+        {
+            PrefManager prefManager = new PrefManager(getApplicationContext());
+
+            prefManager.setFirstTimeLaunch(true);
+
+            startActivity(new Intent(EarthquakeActivity.this, IntroActivity.class));
+            finish();
+        }
+
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
