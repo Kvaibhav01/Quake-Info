@@ -22,9 +22,9 @@ public class IntroActivity extends AppIntro {
 
         // Add your slide fragments here.
         // AppIntro will automatically generate the dots indicator and buttons.
-        addSlide(SampleSlide.newInstance(R.layout.slide_1));
-        addSlide(SampleSlide.newInstance(R.layout.slide_2));
-        addSlide(SampleSlide.newInstance(R.layout.slide_3));
+        addSlide(BaseSlide.newInstance(R.layout.slide_1));
+        addSlide(BaseSlide.newInstance(R.layout.slide_2));
+        addSlide(BaseSlide.newInstance(R.layout.slide_3));
 
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest.
