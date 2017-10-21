@@ -41,8 +41,8 @@
                 android:value="com.example.android.quakereport.EarthquakeActivity"/>
         </activity>
 
-        <activity android:name=".IntroActivity"></activity>
-
+        <activity android:name="com.example.android.quakereport.IntroActivity"
+            android:label="@string/app_intro" />
     </application>
 
 </manifest>
