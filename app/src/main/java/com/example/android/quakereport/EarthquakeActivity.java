@@ -86,31 +86,17 @@ public class EarthquakeActivity extends AppCompatActivity
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                //  Initialize SharedPreferences
-                SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                SharedPreferences sharedPreferences = getSharedPreferences(Config.FLAG, Context.MODE_PRIVATE);
 
-                //  Create a new boolean and preference and set it to true
-                boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
+                if (sharedPreferences.getBoolean(Config.FLAG, true)) {
 
-                //  If the activity has never started before...
-                if (isFirstStart) {
 
-                    //  Launch app intro
-                    final Intent i = new Intent(EarthquakeActivity.this, IntroActivity.class);
+                    startActivity(new Intent(EarthquakeActivity.this, IntroActivity.class));
 
-                    runOnUiThread(new Runnable() {
-                        @Override public void run() {
-                            startActivity(i);
-                        }
-                    });
+                    SharedPreferences.Editor e = sharedPreferences.edit();
 
-                    //  Make a new preferences editor
-                    SharedPreferences.Editor e = getPrefs.edit();
+                    e.putBoolean(Config.FLAG, false);
 
-                    //  Edit preference to make it false because we don't want this to run again
-                    e.putBoolean("firstStart", false);
-
-                    //  Apply changes
                     e.apply();
                 }
             }
