@@ -64,4 +64,16 @@ public class IntroActivity extends AppIntro {
         super.onSlideChanged(oldFragment, newFragment);
         // Do something when the slide changes.
     }
+    
+    private void loadMainActivity()
+    {
+        Intent intent = new Intent(this, EarthquakeActivity.class);
+        startActivity(intent);
+    }
+
+    public void getStarted(View view)
+    {
+        loadMainActivity();
+    }
+
 }
