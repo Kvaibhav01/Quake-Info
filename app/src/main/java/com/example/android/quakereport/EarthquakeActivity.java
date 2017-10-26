@@ -47,6 +47,7 @@ public class EarthquakeActivity extends AppCompatActivity
         implements LoaderCallbacks<List<Earthquake>>,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
+    public static final String MyPrefs = "MyPrefs";
     private static final String LOG_TAG = EarthquakeActivity.class.getName();
 
     /** URL for earthquake data from the USGS dataset */
@@ -77,33 +78,15 @@ public class EarthquakeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
-        //Start the intro slide with an intent
-        Intent intent = new Intent(this, IntroActivity.class);
-        startActivity(intent);
-
         /* Start the intro only once */
-        //  Declare a new thread to do a preference check
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences sharedPreferences = getSharedPreferences(Config.FLAG, Context.MODE_PRIVATE);
-
-                if (sharedPreferences.getBoolean(Config.FLAG, true)) {
-
-
-                    startActivity(new Intent(EarthquakeActivity.this, IntroActivity.class));
-
-                    SharedPreferences.Editor e = sharedPreferences.edit();
-
-                    e.putBoolean(Config.FLAG, false);
-
-                    e.apply();
-                }
-            }
-        });
-
-        // Start the thread
-        t.start();
+        SharedPreferences sp = getSharedPreferences(MyPrefs, Context.MODE_PRIVATE);
+        if (!sp.getBoolean("first", false)) {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("first", true);
+            editor.apply();
+            Intent intent = new Intent(this, IntroActivity.class);
+            startActivity(intent);
+        }
 
         /* Create About activity */
         AboutConfig aboutConfig = AboutConfig.getInstance();
