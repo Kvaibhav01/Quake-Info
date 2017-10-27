@@ -134,6 +134,9 @@ public class EarthquakeActivity extends AppCompatActivity
         aboutConfig.shareMessage = getString(R.string.share_message);
         aboutConfig.sharingTitle = getString(R.string.sharing_title);
 
+    	/* Start the about activity */
+        AboutActivity.launch(EarthquakeActivity.this);
+
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
