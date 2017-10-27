@@ -45,4 +45,8 @@
             android:label="@string/app_intro" />
     </application>
 
+    <activity android:name="com.eggheadgames.aboutbox.activity.AboutActivity">
+              android:theme="@style/AppTheme.MaterialAboutActivity"/>
+        </activity>
+
 </manifest>
