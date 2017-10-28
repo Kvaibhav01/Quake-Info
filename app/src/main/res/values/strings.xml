@@ -52,6 +52,8 @@
 
     <string name="app_intro">Intro</string>
 
-    <string name="share_message">Share the app to your friends!</string>
-    <string name="sharing_title">Share the app?</string>
+    <string name="share_message">Hey there! I just used the Quake Report app which gives all the necessary
+    earthquake data straight from the USGS servers. I found it awesome and you'll find it too! Download the app
+    from</string>
+    <string name="sharing_title">Care to share?</string>
 </resources>
