@@ -64,8 +64,9 @@ public class EarthquakeActivity extends AppCompatActivity
     private static final String WEB_HOME_PAGE = "https://about.me/vaibhav_khulbe";
     private static final String APP_PUBLISHER = "https://play.google.com/store/apps/developer?id=Vaibhav%20Khulbe&hl=en";
     private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com" ;
-    private static final String EMAIL_SUBJECT = "Quake App acknowledgements and issues";
-    private static final String EMAIL_BODY = "Please explain your experience with this app here...";
+    private static final String EMAIL_SUBJECT = "Quake Report app acknowledgements and/or issues";
+    private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
+            "or issues you may be facing or what you liked about the app along with improvements";
 
     /** Adapter for the list of earthquakes */
     private EarthquakeAdapter mAdapter;
@@ -93,8 +94,8 @@ public class EarthquakeActivity extends AppCompatActivity
         aboutConfig.appName = getString(R.string.app_name);
         aboutConfig.appIcon = R.mipmap.ic_launcher;
         aboutConfig.version = "1.0.0";
-        aboutConfig.author = "Tolstoy";
-        aboutConfig.aboutLabelTitle = "About App";
+        aboutConfig.author = "Vaibhav Khulbe";
+        aboutConfig.aboutLabelTitle = "About";
         aboutConfig.packageName = getApplicationContext().getPackageName();
 
 
