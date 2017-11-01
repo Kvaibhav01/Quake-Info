@@ -21,22 +21,16 @@ public class IntroActivity extends MaterialIntroActivity {
 
 
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.colorPrimary)
-                        .buttonsColor(R.color.colorAccent)
+                        .backgroundColor(R.color.slide1_bg)
+                        .buttonsColor(R.color.slide1_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.ic_next)
-                        .title("Welcome!")
+                        .title("Welcome")
                         .description("To the Quake Report app")
-                        .build(),
-                new MessageButtonBehaviour(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showMessage("The app is in continuous evolvement");
-                    }
-                }, "What's good?"));
+                        .build());
 
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.colorPrimary)
-                        .buttonsColor(R.color.colorAccent)
+                        .backgroundColor(R.color.slide2_bg)
+                        .buttonsColor(R.color.slide2_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.ic_next)
                         .title("Accurate and precise")
                         .description("No data error in these earthquake lists")
@@ -52,8 +46,8 @@ public class IntroActivity extends MaterialIntroActivity {
         );
 
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.colorPrimary)
-                        .buttonsColor(R.color.colorAccent)
+                        .backgroundColor(R.color.slide3_bg)
+                        .buttonsColor(R.color.slide3_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.ic_next)
                         .title("Dive in!")
                         .description("Checkout the earthquake details with care and inform your friends and community!")
@@ -69,15 +63,13 @@ public class IntroActivity extends MaterialIntroActivity {
         );
 
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.colorPrimary)
-                        .buttonsColor(R.color.colorAccent)
+                        .backgroundColor(R.color.slide4_bg)
+                        .buttonsColor(R.color.slide4_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.ic_next)
                         .title("Big hug!")
-                        .description("Thank you for following up the basics of the app")
-                        .build()
-
-
-        );
+                        .description("Thank you for following up the app tutorial")
+                        .build());
+        
         enableLastSlideAlphaExitTransition(true);
     }
 }
