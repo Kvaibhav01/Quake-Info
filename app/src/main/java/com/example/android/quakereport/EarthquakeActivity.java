@@ -285,6 +285,12 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(settingsIntent);
             return true;
         }
+
+        if (id == R.id.action_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
