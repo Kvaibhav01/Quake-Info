@@ -34,9 +34,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.eggheadgames.aboutbox.AboutConfig;
-import com.eggheadgames.aboutbox.IAnalytic;
-import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
 
 import java.util.ArrayList;
@@ -92,58 +89,6 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        /* Create About activity */
-        AboutConfig aboutConfig = AboutConfig.getInstance();
-        aboutConfig.appName = getString(R.string.app_name);
-        aboutConfig.appIcon = R.mipmap.ic_launcher;
-        aboutConfig.version = "1.0.0";
-        aboutConfig.author = "Vaibhav Khulbe";
-        aboutConfig.aboutLabelTitle = "About";
-        aboutConfig.packageName = getApplicationContext().getPackageName();
-
-
-        aboutConfig.twitterUserName = TWITTER_USER_NAME;
-        aboutConfig.webHomePage = WEB_HOME_PAGE;
-
-        // app publisher for "Try Other Apps" item
-        aboutConfig.appPublisher = APP_PUBLISHER;
-
-        aboutConfig.companyHtmlPath = COMPANY_HTML_PATH;
-        aboutConfig.privacyHtmlPath = PRIVACY_HTML_PATH;
-        aboutConfig.acknowledgmentHtmlPath = ACKNOWLEDGMENT_HTML_PATH;
-
-        aboutConfig.dialog = new IDialog() {
-            @Override
-            public void open(AppCompatActivity appCompatActivity, String url, String tag) {
-                // handle custom implementations of WebView. It will be called when user click to web items. (Example: "Privacy", "Acknowledgments" and "About")
-            }
-        };
-
-        aboutConfig.analytics = new IAnalytic() {
-            @Override
-            public void logUiEvent(String s, String s1) {
-                // handle log events.
-            }
-
-            @Override
-            public void logException(Exception e, boolean b) {
-                // handle exception events.
-            }
-        };
-        // set it only if aboutConfig.analytics is defined.
-        aboutConfig.logUiEventName = "Log";
-
-        // Contact Support email details
-        aboutConfig.emailAddress = EMAIL_ADDRESS;
-        aboutConfig.emailSubject = EMAIL_SUBJECT;
-        aboutConfig.emailBody = EMAIL_BODY;
-
-
-        aboutConfig.shareMessage = getString(R.string.share_message);
-        aboutConfig.sharingTitle = getString(R.string.sharing_title);
-
-    	/* Start the about activity */
-        AboutActivity.launch(EarthquakeActivity.this);
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
