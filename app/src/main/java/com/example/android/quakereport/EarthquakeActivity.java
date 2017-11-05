@@ -89,8 +89,11 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(intent);
         }
 
+        //Call and launch About activity
+        initAboutActivity();
+        AboutActivity.launch(EarthquakeActivity.this);
 
-        // Find a reference to the {@link ListView} in the layout
+		// Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
@@ -154,24 +157,25 @@ public class EarthquakeActivity extends AppCompatActivity
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
-        /* Add About activity */
+        /*Code to launch About activity */
+    public void initAboutActivity()
+    {
+        /* Create About activity */
         AboutConfig aboutConfig = AboutConfig.getInstance();
         aboutConfig.appName = getString(R.string.app_name);
         aboutConfig.appIcon = R.mipmap.ic_launcher;
         aboutConfig.version = "1.0.0";
-        aboutConfig.author = "Tolstoy";
-        aboutConfig.aboutLabelTitle = "About App";
+        aboutConfig.author = "Vaibhav Khulbe";
+        aboutConfig.aboutLabelTitle = "About";
         aboutConfig.packageName = getApplicationContext().getPackageName();
-        aboutConfig.buildType = google ? AboutConfig.BuildType.GOOGLE : AboutConfig.BuildType.AMAZON;
 
-        aboutConfig.facebookUserName = FACEBOOK_USER_NAME;
+
         aboutConfig.twitterUserName = TWITTER_USER_NAME;
         aboutConfig.webHomePage = WEB_HOME_PAGE;
 
         // app publisher for "Try Other Apps" item
         aboutConfig.appPublisher = APP_PUBLISHER;
 
-        // if pages are stored locally, then you need to override aboutConfig.dialog to be able use custom WebView
         aboutConfig.companyHtmlPath = COMPANY_HTML_PATH;
         aboutConfig.privacyHtmlPath = PRIVACY_HTML_PATH;
         aboutConfig.acknowledgmentHtmlPath = ACKNOWLEDGMENT_HTML_PATH;
@@ -201,6 +205,11 @@ public class EarthquakeActivity extends AppCompatActivity
         aboutConfig.emailAddress = EMAIL_ADDRESS;
         aboutConfig.emailSubject = EMAIL_SUBJECT;
         aboutConfig.emailBody = EMAIL_BODY;
+
+
+        aboutConfig.shareMessage = getString(R.string.share_message);
+        aboutConfig.sharingTitle = getString(R.string.sharing_title);
+
     }
 
     @Override
