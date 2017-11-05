@@ -85,9 +85,9 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        //Call and launch About activity
+        //Call about activity function
         initAboutActivity();
-        AboutActivity.launch(EarthquakeActivity.this);
+    
 
 		// Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
