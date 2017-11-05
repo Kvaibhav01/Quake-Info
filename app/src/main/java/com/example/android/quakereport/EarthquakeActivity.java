@@ -28,7 +28,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -63,10 +62,7 @@ public class EarthquakeActivity extends AppCompatActivity
     private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com" ;
     private static final String EMAIL_SUBJECT = "Quake Report app acknowledgements and/or issues";
     private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
-            "or issues you may be facing or what you liked about the app along with improvements";
-    private static final String COMPANY_HTML_PATH = "https://github.com/Kvaibhav01/Quake-Report";
-    private static final String PRIVACY_HTML_PATH= "https://github.com/Kvaibhav01/Quake-Report/blob/master/LICENSE";
-    private static final String ACKNOWLEDGMENT_HTML_PATH = "https://github.com/eggheadgames/android-about-box" ;        
+            "or issues you may be facing or what you liked about the app along with improvements";   
 
     /** Adapter for the list of earthquakes */
     private EarthquakeAdapter mAdapter;
@@ -175,10 +171,6 @@ public class EarthquakeActivity extends AppCompatActivity
 
         // app publisher for "Try Other Apps" item
         aboutConfig.appPublisher = APP_PUBLISHER;
-
-        aboutConfig.companyHtmlPath = COMPANY_HTML_PATH;
-        aboutConfig.privacyHtmlPath = PRIVACY_HTML_PATH;
-        aboutConfig.acknowledgmentHtmlPath = ACKNOWLEDGMENT_HTML_PATH;
 
         aboutConfig.dialog = new IDialog() {
             @Override
