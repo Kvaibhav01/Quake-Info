@@ -50,7 +50,7 @@ public class IntroActivity extends MaterialIntroActivity {
                         .buttonsColor(R.color.slide3_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.ic_next)
                         .title("Dive in!")
-                        .description("Checkout the earthquake details with care and inform your friends and community!")
+                        .description("Checkout the curated earthquake list with care and inform your friends and community!")
                         .build(),
                 new MessageButtonBehaviour(new View.OnClickListener() {
                     @Override
