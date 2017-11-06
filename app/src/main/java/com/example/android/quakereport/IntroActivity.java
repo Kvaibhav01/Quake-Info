@@ -31,7 +31,7 @@ public class IntroActivity extends MaterialIntroActivity {
         addSlide(new SlideFragmentBuilder()
                         .backgroundColor(R.color.slide2_bg)
                         .buttonsColor(R.color.slide2_btn)
-                        .image(agency.tango.materialintroscreen.R.drawable.ic_next)
+                        .image(agency.tango.materialintroscreen.R.drawable.ic_finish)
                         .title("Accurate and precise")
                         .description("No data error in these earthquake lists")
                         .build(),
