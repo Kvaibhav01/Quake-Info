@@ -23,7 +23,7 @@ public class IntroActivity extends MaterialIntroActivity {
         addSlide(new SlideFragmentBuilder()
                         .backgroundColor(R.color.slide1_bg)
                         .buttonsColor(R.color.slide1_btn)
-                        .image(agency.tango.materialintroscreen.R.drawable.ic_next)
+                        .image(agency.tango.materialintroscreen.R.drawable.abc_ic_arrow_drop_right_black_24dp)
                         .title("Welcome")
                         .description("To the Quake Report app")
                         .build());
@@ -48,7 +48,7 @@ public class IntroActivity extends MaterialIntroActivity {
         addSlide(new SlideFragmentBuilder()
                         .backgroundColor(R.color.slide3_bg)
                         .buttonsColor(R.color.slide3_btn)
-                        .image(agency.tango.materialintroscreen.R.drawable.ic_next)
+                        .image(agency.tango.materialintroscreen.R.drawable.abc_ic_search_api_material)
                         .title("Dive in!")
                         .description("Checkout the curated earthquake list with care and inform your friends and community!")
                         .build(),
@@ -65,7 +65,7 @@ public class IntroActivity extends MaterialIntroActivity {
         addSlide(new SlideFragmentBuilder()
                         .backgroundColor(R.color.slide4_bg)
                         .buttonsColor(R.color.slide4_btn)
-                        .image(agency.tango.materialintroscreen.R.drawable.ic_next)
+                        .image(agency.tango.materialintroscreen.R.drawable.design_ic_visibility)
                         .title("Big hug!")
                         .description("Thank you for following up the app tutorial")
                         .build());
