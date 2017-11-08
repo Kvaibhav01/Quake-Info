@@ -66,11 +66,11 @@
     <color name="slide2_bg">#FFCDD2</color>
     <color name="slide2_btn">#F44336</color>
 
-    <color name="slide3_bg">#BDBDBD</color>
-    <color name="slide3_btn">#757575</color>
+    <color name="slide3_bg">#F8BBD0</color>
+    <color name="slide3_btn">#536DFE</color>
 
-    <color name="slide4_bg">#F8BBD0</color>
-    <color name="slide4_btn">#536DFE</color>
+    <color name="slide4_bg">#BDBDBD</color>
+    <color name="slide4_btn">#757575</color>
 
 
 </resources>
