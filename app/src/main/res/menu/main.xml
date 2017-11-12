@@ -16,19 +16,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.quakereport.EarthquakeActivity">
-    
+
     <item
         android:id="@+id/action_about"
-        android:title="@string/about"
         android:icon="@drawable/ic_action_about"
-        app:showAsAction="always"
-        android:orderInCategory="2"/>
+        android:orderInCategory="2"
+        android:title="@string/about" />
 
     <item
         android:id="@+id/action_settings"
-        android:title="@string/settings_menu_item"
         android:icon="@drawable/ic_filter"
         android:orderInCategory="1"
+        android:title="@string/settings_menu_item"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_did_you_feel_it"
+        android:title="@string/did_you_feel_it"></item>
+
+    <item
+        android:id="@+id/action_more_apps"
+        android:title="@string/more_apps"></item>
 
 </menu>
