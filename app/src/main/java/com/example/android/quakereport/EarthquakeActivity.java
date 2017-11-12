@@ -292,6 +292,18 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(intent);
             return true;
         }
-        return super.onOptionsItemSelected(item);
+
+        if (id == R.id.action_did_you_feel_it){
+
+            Intent feelItIntent = new Intent(this, SettingsActivity.class);
+            startActivity(feelItIntent);
+            return true;
+        }
+        if (id == R.id.action_more_apps){
+
+            Uri uri = Uri.parse( "https://play.google.com/store/apps/developer?id=Vaibhav+Khulbe" );
+            startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+        }
+		return super.onOptionsItemSelected(item);
     }
 }
