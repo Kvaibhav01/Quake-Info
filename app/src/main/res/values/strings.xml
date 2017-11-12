@@ -51,9 +51,15 @@
     <string name="settings_order_by_most_recent_value" translatable="false">time</string>
 
     <string name="app_intro">Intro</string>
-
+    
     <string name="share_message">Hey there! I just used the Quake Report app which gives all the necessary
     earthquake data straight from the USGS servers. I found it awesome and you'll find it too! Download the app
     from</string>
     <string name="sharing_title">Care to share?</string>
+    <string name="about">About</string>
+    
+    <string name="did_you_feel_it">Did you feel it?</string>
+    <string name="more_apps">More apps</string>
+
+
 </resources>
