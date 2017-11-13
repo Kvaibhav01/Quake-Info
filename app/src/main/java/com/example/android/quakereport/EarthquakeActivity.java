@@ -304,6 +304,11 @@ public class EarthquakeActivity extends AppCompatActivity
             Uri uri = Uri.parse( "https://play.google.com/store/apps/developer?id=Vaibhav+Khulbe" );
             startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
         }
+        if (id == R.id.fork_project){
+
+            Uri uri = Uri.parse( "https://github.com/Kvaibhav01/Quake-Report" );
+            startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+        }
 		return super.onOptionsItemSelected(item);
     }
 }

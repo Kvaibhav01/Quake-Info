@@ -51,9 +51,13 @@
 
         <activity android:name=".IntroActivity" />
 
-        <activity android:name=".AboutActivity">
-        </activity>
-
-    </application>
+        <activity
+           android:name=".DidYouFeel"
+           android:parentActivityName=".EarthquakeActivity">
+           <meta-data
+               android:name="android.support.PARENT_ACTIVITY"
+               android:value="com.example.android.quakereport.EarthquakeActivity"/>
+       </activity>
+	</application>
 
 </manifest>

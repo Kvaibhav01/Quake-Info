@@ -38,4 +38,8 @@
         android:id="@+id/action_more_apps"
         android:title="@string/more_apps"></item>
 
+    <item
+        android:id="@+id/fork_project"
+        android:title="@string/fork_on_github"/>    
+
 </menu>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Name of the activity [CHAR LIMIT=20] -->
+    <string name="feel_it_app_name">Did You Feel It?</string>
+
+    <!-- Label for perceived strength value [CHAR LIMIT=40] -->
+    <string name="perceived_strength">Perceived Strength</string>
+
+    <!-- Number of people who reported perceived strength for an earthquake [CHAR LIMIT=NONE] -->
+    <string name="num_people_felt_it"><xliff:g id="number" example="10">%s</xliff:g> people felt it</string>
+</resources>
