@@ -1,24 +1,26 @@
 package com.example.android.quakereport;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.view.View;
 
 import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.SlideFragmentBuilder;
 
 /**
- * Created by kvaib on 17-10-2017.
+ * Created by kvaib on 27-10-2017.
  */
 
 public class IntroActivity extends MaterialIntroActivity {
 
-   @Override
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
         addSlide(new SlideFragmentBuilder()
                         .backgroundColor(R.color.slide1_bg)
@@ -50,7 +52,7 @@ public class IntroActivity extends MaterialIntroActivity {
                         .buttonsColor(R.color.slide3_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.abc_ic_search_api_material)
                         .title("Dive in!")
-                        .description("Checkout the curated earthquake list with care and inform your friends and community!")
+                        .description("Checkout curated earthquake list with care and inform your friends and community!")
                         .build(),
                 new MessageButtonBehaviour(new View.OnClickListener() {
                     @Override
@@ -68,8 +70,10 @@ public class IntroActivity extends MaterialIntroActivity {
                         .image(agency.tango.materialintroscreen.R.drawable.design_ic_visibility)
                         .title("Big hug!")
                         .description("Thank you for following up the app tutorial")
-                        .build());
-        
+                        .build()
+
+
+        );
         enableLastSlideAlphaExitTransition(true);
     }
 }

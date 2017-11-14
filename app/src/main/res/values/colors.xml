@@ -59,18 +59,17 @@
     <!-- Magnitude circle color for an earthquake with magnitude over 10 -->
     <color name="magnitude10plus">#C03823</color>
 
-    <!-- Colors for background and next/previous buttons of intro slides -->
     <color name="slide1_bg">#C2185B</color>
     <color name="slide1_btn">#FF5252</color>
 
-    <color name="slide2_bg">#FFCDD2</color>
-    <color name="slide2_btn">#F44336</color>
+    <color name="slide2_bg">#005b96</color>
+    <color name="slide2_btn">#4d9164</color>
 
-    <color name="slide3_bg">#F8BBD0</color>
+    <color name="slide3_bg">#6d4c41</color>
     <color name="slide3_btn">#536DFE</color>
 
-    <color name="slide4_bg">#BDBDBD</color>
-    <color name="slide4_btn">#757575</color>
+    <color name="slide4_bg">#37474f</color>
+    <color name="slide4_btn">#bf360c</color>
 
 
 </resources>
