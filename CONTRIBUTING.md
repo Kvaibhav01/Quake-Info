@@ -1,10 +1,10 @@
 ## Contributing
 
-Thank you for your interest in contributing to the **Quake Report**.
+Thank you for your interest in contributing to the **Quake List**.
 
 #### Issues
 
-One of the best contributions is filing issues in the [Issue tracker](https://github.com/Kvaibhav01/Quake-Report/issues). 
+One of the best contributions is filing issues in the [Issue tracker](https://github.com/Kvaibhav01/Quake-List/issues). 
 
 _All contributions (feature or bug fix) should start with an issue first_.
 
@@ -15,8 +15,8 @@ _All contributions (feature or bug fix) should start with an issue first_.
 - If possible, add a failing test
 - Commit your fix/feature and tests (`git commit -am "fixes for issue #nnn"`)
 - Push to the branch (`git push -u origin issue-nnn`)
-- Open a [Pull request](https://github.com/Kvaibhav01/Quake-Report/pulls)
+- Open a [Pull request](https://github.com/Kvaibhav01/Quake-List/pulls)
 
 
-[issue-tracker]: https://github.com/Kvaibhav01/Quake-Report/issues
-[pull-request]: https://github.com/Kvaibhav01/Quake-Report/pulls
+[issue-tracker]: https://github.com/Kvaibhav01/Quake-List/issues
+[pull-request]: https://github.com/Kvaibhav01/Quake-List/pulls
