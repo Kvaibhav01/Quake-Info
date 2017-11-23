@@ -20,7 +20,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.example.android.quakereport.DidYouFeel">
+    tools:context="com.android.quakeInfo.DidYouFeel">
 
     <TextView
         android:id="@+id/title"

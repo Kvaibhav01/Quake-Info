@@ -13,10 +13,10 @@
 -->
 <!-- Layout for our Settings Activity, containing a Preference Fragment -->
 <fragment
-    android:name="com.example.android.quakereport.SettingsActivity$EarthquakePreferenceFragment"
+    android:name="com.android.quakeInfo.SettingsActivity$EarthquakePreferenceFragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.quakereport.SettingsActivity">
+    tools:context="com.android.quakeInfo.SettingsActivity">
 </fragment>

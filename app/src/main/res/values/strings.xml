@@ -15,7 +15,7 @@
 -->
 <resources>
     <!-- Title for the application. [CHAR LIMIT=12] -->
-    <string name="app_name">Quake Report</string>
+    <string name="app_name">Quake Info</string>
 
     <!-- Default text to show with the earthquake location ("Close to Pacific-Antarctic Ridge")
          if no specific kilometer distance from the primary location is given [CHAR LIMIT=30] -->

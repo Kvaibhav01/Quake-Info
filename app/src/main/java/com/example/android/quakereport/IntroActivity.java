@@ -1,4 +1,4 @@
-package com.example.android.quakereport;
+package com.android.quakeInfo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

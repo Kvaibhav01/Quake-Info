@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.quakereport;
+package com.android.quakeInfo;
 
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
