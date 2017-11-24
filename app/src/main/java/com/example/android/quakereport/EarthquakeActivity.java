@@ -62,7 +62,7 @@ public class EarthquakeActivity extends AppCompatActivity
     private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com" ;
     private static final String EMAIL_SUBJECT = "Quake Report app acknowledgements and/or issues";
     private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
-            "or issues you may be facing or what you liked about the app along with improvements";   
+            " or issues you may be facing or what you liked about the app along with improvements";   
 
     /** Adapter for the list of earthquakes */
     private EarthquakeAdapter mAdapter;
