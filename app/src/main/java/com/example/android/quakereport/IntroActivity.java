@@ -27,7 +27,7 @@ public class IntroActivity extends MaterialIntroActivity {
                         .buttonsColor(R.color.slide1_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.abc_ic_arrow_drop_right_black_24dp)
                         .title("Welcome")
-                        .description("To the Quake Report app")
+                        .description("To the Quake Info app")
                         .build());
 
         addSlide(new SlideFragmentBuilder()
