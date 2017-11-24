@@ -4,7 +4,7 @@
 ===================================
 
 ###### Short description
-The Quake Info app provides the updated list of earthquake occurances happening around the globe. The list comes straight from the U.S. Geological Survey (USGS) organization. Some of the key features of this app are:-
+The Quake Info app provides the updated list of earthquake occurances happening around the globe. The list comes straight from the [U.S. Geological Survey (USGS)](https://www.usgs.gov/) organization. Some of the key features of this app are:-
 
 1. **Accurate ane precise**: The earthquake list provides up-to-date and accurate information with zero errors. The data is in accordance with the USGS data.
 2. **Detailed info**: The list provides the loaction, magnitude, time, date and approximated loaction. When you tap on it, it'll open the USGS site to show you more information related to that quake.
