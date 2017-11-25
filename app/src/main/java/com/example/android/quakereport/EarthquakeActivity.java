@@ -56,7 +56,7 @@ public class EarthquakeActivity extends AppCompatActivity
      */
     private static final int EARTHQUAKE_LOADER_ID = 1;
 
-    private static final String TWITTER_USER_NAME = "@vaibhav_khulbe";
+    private static final String TWITTER_USER_NAME = "vaibhav_khulbe";
     private static final String WEB_HOME_PAGE = "https://about.me/vaibhav_khulbe";
     private static final String APP_PUBLISHER = "https://play.google.com/store/apps/developer?id=Vaibhav%20Khulbe&hl=en";
     private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com" ;
