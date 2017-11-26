@@ -306,7 +306,7 @@ public class EarthquakeActivity extends AppCompatActivity
         }
         if (id == R.id.fork_project){
 
-            Uri uri = Uri.parse( "https://github.com/Kvaibhav01/Quake-Report" );
+            Uri uri = Uri.parse( "https://github.com/Kvaibhav01/Quake-Info" );
             startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
         }
 		return super.onOptionsItemSelected(item);
