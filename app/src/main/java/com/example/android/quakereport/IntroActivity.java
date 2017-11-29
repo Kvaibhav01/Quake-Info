@@ -1,5 +1,9 @@
 package com.android.quakeInfo;
 
+/**
+ * Created by kvaib on 17-11-2017.
+ */
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -8,27 +12,19 @@ import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.SlideFragmentBuilder;
 
-/**
- * Created by kvaib on 27-10-2017.
- */
-
 public class IntroActivity extends MaterialIntroActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.slide1_bg)
-                        .buttonsColor(R.color.slide1_btn)
-                        .image(agency.tango.materialintroscreen.R.drawable.abc_ic_arrow_drop_right_black_24dp)
-                        .title("Welcome")
-                        .description("To the Quake Info app")
-                        .build());
+                .backgroundColor(R.color.slide1_bg)
+                .buttonsColor(R.color.slide1_btn)
+                .image(R.mipmap.ic_launcher_round)
+                .title("Welcome")
+                .description("To the Quake Info app")
+                .build());
 
         addSlide(new SlideFragmentBuilder()
                         .backgroundColor(R.color.slide2_bg)
@@ -40,7 +36,7 @@ public class IntroActivity extends MaterialIntroActivity {
                 new MessageButtonBehaviour(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showMessage("Straight from the USGS servers.");
+                        showMessage("Straight from the USGS servers");
                     }
                 }, "Data source?")
 
@@ -52,25 +48,17 @@ public class IntroActivity extends MaterialIntroActivity {
                         .buttonsColor(R.color.slide3_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.abc_ic_search_api_material)
                         .title("Dive in!")
-                        .description("Checkout curated earthquake list with care and inform your friends and community!")
-                        .build(),
-                new MessageButtonBehaviour(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showMessage("We donot joke :')");
-                    }
-                }, "Nothing here")
+                        .description("Want to get in-depth quake info? It's simple, tap on each list to start")
+                        .build());
 
-
-        );
 
         addSlide(new SlideFragmentBuilder()
-                        .backgroundColor(R.color.slide4_bg)
-                        .buttonsColor(R.color.slide4_btn)
-                        .image(agency.tango.materialintroscreen.R.drawable.design_ic_visibility)
-                        .title("Big hug!")
-                        .description("Thank you for following up the app tutorial")
-                        .build()
+                .backgroundColor(R.color.slide5_bg)
+                .buttonsColor(R.color.slide5_btn)
+                .image(agency.tango.materialintroscreen.R.drawable.design_ic_visibility)
+                .title("Big hug!")
+                .description("Thank you for keeping an \uD83D\uDC40 on the app tutorial")
+                .build()
 
 
         );
