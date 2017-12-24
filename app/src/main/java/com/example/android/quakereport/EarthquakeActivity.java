@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.android.quakeInfo;
 
 import android.app.LoaderManager;
@@ -27,24 +12,27 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+import com.eggheadgames.aboutbox.AboutConfig;
+import com.eggheadgames.aboutbox.IAnalytic;
+import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class EarthquakeActivity extends AppCompatActivity
-        implements LoaderCallbacks<List<Earthquake>>,
-        SharedPreferences.OnSharedPreferenceChangeListener {
-
+public class EarthquakeActivity extends AppCompatActivity implements LoaderCallbacks<List<Earthquake>>, SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String MyPrefs = "MyPrefs";
-    private static final String LOG_TAG = EarthquakeActivity.class.getName();
 
     /** URL for earthquake data from the USGS dataset */
     private static final String USGS_REQUEST_URL =
@@ -56,19 +44,21 @@ public class EarthquakeActivity extends AppCompatActivity
      */
     private static final int EARTHQUAKE_LOADER_ID = 1;
 
-    private static final String TWITTER_USER_NAME = "vaibhav_khulbe";
-    private static final String WEB_HOME_PAGE = "https://about.me/vaibhav_khulbe";
-    private static final String APP_PUBLISHER = "https://play.google.com/store/apps/developer?id=Vaibhav%20Khulbe&hl=en";
-    private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com" ;
-    private static final String EMAIL_SUBJECT = "Quake Report app acknowledgements and/or issues";
-    private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
-            " or issues you may be facing or what you liked about the app along with improvements";   
-
     /** Adapter for the list of earthquakes */
     private EarthquakeAdapter mAdapter;
 
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
+
+    private static final String TWITTER_USER_NAME = "vaibhav_khulbe";
+    private static final String WEB_HOME_PAGE = "https://about.me/vaibhav_khulbe";
+    private static final String APP_PUBLISHER = "https://play.google.com/store/apps/developer?id=Vaibhav%20Khulbe&hl=en";
+    private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com";
+    private static final String EMAIL_SUBJECT = "Quake Report app acknowledgements and/or issues";
+    private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
+            " or issues you may be facing or what you liked about the app along with improvements. :)";
+
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +75,10 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        //Call about activity function
+        //Call and launch About activity
         initAboutActivity();
-    
 
-		// Find a reference to the {@link ListView} in the layout
+        // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
@@ -152,8 +141,9 @@ public class EarthquakeActivity extends AppCompatActivity
             // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+    }
 
-        /*Code to launch About activity */
+    /*Code to launch About activity */
     public void initAboutActivity()
     {
         /* Create About activity */
@@ -165,12 +155,11 @@ public class EarthquakeActivity extends AppCompatActivity
         aboutConfig.aboutLabelTitle = "About";
         aboutConfig.packageName = getApplicationContext().getPackageName();
 
+        aboutConfig.appPublisher = APP_PUBLISHER;
 
         aboutConfig.twitterUserName = TWITTER_USER_NAME;
         aboutConfig.webHomePage = WEB_HOME_PAGE;
 
-        // app publisher for "Try Other Apps" item
-        aboutConfig.appPublisher = APP_PUBLISHER;
 
         aboutConfig.dialog = new IDialog() {
             @Override
@@ -286,16 +275,14 @@ public class EarthquakeActivity extends AppCompatActivity
             startActivity(settingsIntent);
             return true;
         }
-
         if (id == R.id.action_about) {
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
+            Intent actionIntent = new Intent(this, AboutActivity.class);
+            startActivity(actionIntent);
             return true;
         }
-
         if (id == R.id.action_did_you_feel_it){
 
-            Intent feelItIntent = new Intent(this, SettingsActivity.class);
+            Intent feelItIntent = new Intent(this, DidYouFeel.class);
             startActivity(feelItIntent);
             return true;
         }
@@ -309,6 +296,12 @@ public class EarthquakeActivity extends AppCompatActivity
             Uri uri = Uri.parse( "https://github.com/Kvaibhav01/Quake-Info" );
             startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
         }
-		return super.onOptionsItemSelected(item);
+
+        if (id == R.id.notification){
+
+            Intent notificationIntent = new Intent(this, EarthquakeNotification.class);
+            startActivity(notificationIntent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

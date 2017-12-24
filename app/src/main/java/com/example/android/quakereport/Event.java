@@ -1,7 +1,7 @@
 package com.android.quakeInfo;
 
 /**
- * Created by kvaib on 13-11-2017.
+ * Created by kvaib on 17-11-2017.
  */
 
 /**
