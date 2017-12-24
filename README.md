@@ -24,6 +24,7 @@ My app (RESERVED)
 
 1. [material-intro-screen](https://github.com/TangoAgency/material-intro-screen) by [TangoAgency](https://github.com/TangoAgency) to make cool intro slides/tutorial.
 2. [android-about-box](https://github.com/eggheadgames/android-about-box) by [eggheadgames](https://github.com/eggheadgames) to make About activity for the app.
+3. [LovelyDialog](https://github.com/yarolegovich/LovelyDialog) by [yarolegovich](https://github.com/yarolegovich) to alert user while in earthquake notification activity.
 
 ===================================
 
