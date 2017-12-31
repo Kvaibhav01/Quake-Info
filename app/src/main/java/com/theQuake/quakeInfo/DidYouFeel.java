@@ -1,4 +1,4 @@
-package com.android.quakeInfo;
+package com.theQuake.quakeInfo;
 
 /**
  * Created by kvaib on 17-11-2017.

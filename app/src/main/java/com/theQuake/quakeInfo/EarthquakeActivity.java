@@ -1,4 +1,4 @@
-package com.android.quakeInfo;
+package com.theQuake.quakeInfo;
 
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -25,6 +25,9 @@ import com.eggheadgames.aboutbox.AboutConfig;
 import com.eggheadgames.aboutbox.IAnalytic;
 import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 
 import java.util.ArrayList;
@@ -33,6 +36,8 @@ import java.util.List;
 
 public class EarthquakeActivity extends AppCompatActivity implements LoaderCallbacks<List<Earthquake>>, SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String MyPrefs = "MyPrefs";
+
+    AdView adView;
 
     /** URL for earthquake data from the USGS dataset */
     private static final String USGS_REQUEST_URL =
@@ -54,9 +59,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
     private static final String WEB_HOME_PAGE = "https://about.me/vaibhav_khulbe";
     private static final String APP_PUBLISHER = "https://play.google.com/store/apps/developer?id=Vaibhav%20Khulbe&hl=en";
     private static final String EMAIL_ADDRESS = "khulbevaibhavdev@gmail.com";
-    private static final String EMAIL_SUBJECT = "Quake Report app acknowledgements and/or issues";
+    private static final String EMAIL_SUBJECT = "Quake Info app acknowledgements and/or issues";
     private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
-            " or issues you may be facing or what you liked about the app along with improvements. :)";
+            " or issues you may be facing or what you liked about the app along with improvements. :) (MAKE SURE to clear out these lines before sending the mail to us)";
 
     Toolbar toolbar;
 
@@ -74,6 +79,11 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
             Intent intent = new Intent(this, IntroActivity.class);
             startActivity(intent);
         }
+
+        MobileAds.initialize(this, "");
+        adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         //Call and launch About activity
         initAboutActivity();

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imgContainer" type="id">Set</item>
+    <item name="tv_info" type="id">Info</item>
+    <item name="toolbar" type="id">Toolbar</item>
+</resources>

@@ -1,4 +1,4 @@
-package com.android.quakeInfo;
+package com.theQuake.quakeInfo;
 
 /**
  * Created by kvaib on 17-11-2017.
@@ -11,6 +11,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+
 
 public class SettingsActivity extends AppCompatActivity {
 

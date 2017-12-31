@@ -1,18 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 <resources>
     <!-- Title for the application. [CHAR LIMIT=12] -->
     <string name="app_name">Quake Info</string>
@@ -51,14 +36,20 @@
     <string name="settings_order_by_most_recent_value" translatable="false">time</string>
 
     <string name="app_intro">Intro</string>
-    
-    <string name="share_message">Hey there! I just used the Quake Info app. I found it awesome! Download the app from Play Store.</string>
+
+    <string name="share_message">Hey there! I just used the Quake Info app. I found it awesome! Search for "Quake Info" and download the app for free from Google Play Store.</string>
     <string name="sharing_title">Care to share?</string>
     <string name="about">About</string>
-    
+
     <string name="did_you_feel_it">Did you feel it?</string>
     <string name="more_apps">More apps</string>
     <string name="fork_on_github">Fork on GitHub</string>
     <string name="get_notification_alert">Get Notification alert</string>
-    <string name="notification_title">Notifications</string>s
+    <string name="notification_title">Notifications</string>
+    <string name="info_title">Attention!</string>
+    <string name="info_message">This feature is still in beta. Therefore, we are loading an example template from USGS. Check for future updates!</string>
+    <string name="info_of_notif_title">Get started with alerts</string>
+    <string name="info_of_notif_message">Just tap on \"Try ENS or Subscribe\" button and enter your email in the next page.</string>
+
+
 </resources>

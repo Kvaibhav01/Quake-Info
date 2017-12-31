@@ -1,9 +1,10 @@
-package com.android.quakeInfo;
+package com.theQuake.quakeInfo;
 
 /**
  * Created by kvaib on 17-11-2017.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -21,7 +22,7 @@ public class IntroActivity extends MaterialIntroActivity {
         addSlide(new SlideFragmentBuilder()
                 .backgroundColor(R.color.slide1_bg)
                 .buttonsColor(R.color.slide1_btn)
-                .image(R.mipmap.ic_launcher_round)
+                .image(R.drawable.ic_insert_emoticon_black_24dp)
                 .title("Welcome")
                 .description("To the Quake Info app")
                 .build());
@@ -48,20 +49,44 @@ public class IntroActivity extends MaterialIntroActivity {
                         .buttonsColor(R.color.slide3_btn)
                         .image(agency.tango.materialintroscreen.R.drawable.abc_ic_search_api_material)
                         .title("Dive in!")
-                        .description("Want to get in-depth quake info? It's simple, tap on each list to start")
+                        .description("Want to get in-depth quake info? It's simple, tap on each list item to start")
                         .build());
 
+        addSlide(new SlideFragmentBuilder()
+                .backgroundColor(R.color.slide4_bg)
+                .buttonsColor(R.color.slide4_btn)
+                .image(R.drawable.ic_code_black_24dp)
+                .title("Open \uD83D\uDC50 Source")
+                .description("Are you a developer? Want to make some changes to this app? The Quake Info app's source code is listed on GitHub. Feel free to make Pull Requests, Forks or raise a new issue!")
+                .build(),
+                new MessageButtonBehaviour(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                showMessage("You need to explore the app first!");
+            }
+        }, "Where's the link?")
+
+
+        );
 
         addSlide(new SlideFragmentBuilder()
                 .backgroundColor(R.color.slide5_bg)
                 .buttonsColor(R.color.slide5_btn)
-                .image(agency.tango.materialintroscreen.R.drawable.design_ic_visibility)
-                .title("Big hug!")
-                .description("Thank you for keeping an \uD83D\uDC40 on the app tutorial")
-                .build()
+                .image(R.drawable.ic_update_black_24dp)
+                .title("We ❤ Updates!")
+                .description("We'll keep on updating this app on regular intervals adding features like voice search, more filters, updated interface and more.")
+                .build(),
+                new MessageButtonBehaviour(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), EarthquakeActivity.class);
+                        startActivity(intent);
+                    }
+                }, "Start exploring")
 
 
         );
+
         enableLastSlideAlphaExitTransition(true);
     }
 }
