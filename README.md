@@ -1,8 +1,6 @@
 # Quake-Info
 ## Get recent earthqake details straight from USGS
 
-===================================
-
 ###### Short description
 The Quake Info app provides the updated list of earthquake occurrences happening around the globe. The list comes straight from the [U.S. Geological Survey (USGS)](https://www.usgs.gov/) organization. Some of the key features of this app are:-
 
