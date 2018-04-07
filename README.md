@@ -1,6 +1,8 @@
 # Quake-Info
 ## Get recent earthqake details straight from USGS
 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com)
+
 ###### Short description
 The Quake Info app provides the updated list of earthquake occurrences happening around the globe. The list comes straight from the [U.S. Geological Survey (USGS)](https://www.usgs.gov/) organization. Some of the key features of this app are:-
 
