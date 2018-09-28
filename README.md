@@ -31,5 +31,3 @@ Ah, I forgot to mention that it's optimized for Android (8.0) Oreo (the app has 
 _The app wil be updated with newer features like earthquake news feed and more filters in the future. If you want to improve the app more then please fork/add an issue or make a pull request. Any changes are welcomed!😊_
 
 All the upcoming features will be listed on the repo's [Projects link](https://github.com/Kvaibhav01/Quake-Info/projects). You can check the current status there.
-
-Google Play and the Google Play logo are trademarks of Google LLC.
