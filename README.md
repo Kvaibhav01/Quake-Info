@@ -16,12 +16,6 @@ Ah, I forgot to mention that it's optimized for Android (8.0) Oreo (the app has 
 
 ===================================
 
-###### My app 
-The app is now available on Google Play Store:
-<a href='https://play.google.com/store/apps/details?id=com.theQuake.quakeInfo&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
-
-===================================
-
 **Libraries used:**
 
 1. [material-intro-screen](https://github.com/TangoAgency/material-intro-screen) by [TangoAgency](https://github.com/TangoAgency) to make cool intro slides/tutorial.
