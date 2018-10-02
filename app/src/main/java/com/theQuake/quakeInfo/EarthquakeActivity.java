@@ -26,6 +26,7 @@ import com.eggheadgames.aboutbox.IAnalytic;
 import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
@@ -83,6 +84,8 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         MobileAds.initialize(this, "");
         adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("");
         adView.loadAd(adRequest);
 
         //Call and launch About activity
