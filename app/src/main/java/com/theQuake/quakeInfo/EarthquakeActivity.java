@@ -26,9 +26,6 @@ import com.eggheadgames.aboutbox.IAnalytic;
 import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 
 import java.util.ArrayList;
@@ -37,8 +34,6 @@ import java.util.List;
 
 public class EarthquakeActivity extends AppCompatActivity implements LoaderCallbacks<List<Earthquake>>, SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String MyPrefs = "MyPrefs";
-
-    AdView adView;
 
     /** URL for earthquake data from the USGS dataset */
     private static final String USGS_REQUEST_URL =
@@ -80,13 +75,6 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
             Intent intent = new Intent(this, IntroActivity.class);
             startActivity(intent);
         }
-
-        MobileAds.initialize(this, "");
-        adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("");
-        adView.loadAd(adRequest);
 
         //Call and launch About activity
         initAboutActivity();
