@@ -34,6 +34,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
             bindPreferenceSummaryToValue(orderBy);
+
+            Preference narrowByRegion = findPreference(getString(R.string.settings_narrow_by_region_key));
+            bindPreferenceSummaryToValue(narrowByRegion);
         }
 
         @Override

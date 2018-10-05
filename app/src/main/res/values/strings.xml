@@ -22,6 +22,11 @@
     <string name="settings_min_magnitude_key" translatable="false">min_magnitude</string>
     <string name="settings_min_magnitude_default" translatable="false">6</string>
 
+    <!-- Strings For Narrow by Region Preference [CHAR LIMIT=NONE] -->
+    <string name="settings_narrow_by_region_label">Narrow by Region</string>
+    <string name="settings_narrow_by_region_key" translatable="false">narrow_by_region</string>
+    <string name="settings_narrow_by_region_default" translatable="false">Japan</string>
+
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order_by</string>
