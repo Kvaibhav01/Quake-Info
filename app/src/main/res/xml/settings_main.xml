@@ -17,4 +17,11 @@
         android:selectAllOnFocus="true"
         android:title="@string/settings_min_magnitude_label" />
 
+    <EditTextPreference
+        android:defaultValue="@string/settings_narrow_by_region_default"
+        android:inputType="text"
+        android:key="@string/settings_narrow_by_region_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_narrow_by_region_label" />
+
 </PreferenceScreen>

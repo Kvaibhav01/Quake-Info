@@ -230,7 +230,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", "10");
+        uriBuilder.appendQueryParameter("limit", "100");
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
@@ -239,6 +239,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
 
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
@@ -246,13 +249,20 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         // Set empty state text to display "No earthquakes found."
         mEmptyStateTextView.setText(R.string.no_earthquakes);
 
+        String region = sharedPrefs.getString(
+                getString(R.string.settings_narrow_by_region_key),
+                getString(R.string.settings_narrow_by_region_default)
+        );
+
+        List<Earthquake> filteredByRegionEarthquake = Utils.filterByRegion(earthquakes, region);
+
         // Clear the adapter of previous earthquake data
         mAdapter.clear();
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
-        if (earthquakes != null && !earthquakes.isEmpty()) {
-            mAdapter.addAll(earthquakes);
+        if (filteredByRegionEarthquake != null && !filteredByRegionEarthquake.isEmpty()) {
+            mAdapter.addAll(filteredByRegionEarthquake);
         }
     }
 
