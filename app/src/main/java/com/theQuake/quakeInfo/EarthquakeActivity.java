@@ -28,6 +28,7 @@ import com.eggheadgames.aboutbox.activity.AboutActivity;
 import com.google.android.gms.ads.AdRequest;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -226,6 +227,33 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
                 getString(R.string.settings_order_by_default)
         );
 
+        String region = sharedPrefs.getString(
+                getString(R.string.settings_narrow_by_region_key),
+                getString(R.string.settings_narrow_by_region_default)
+        );
+
+        String radius = sharedPrefs.getString(
+                getString(R.string.settings_maximum_radius_key),
+                getString(R.string.settings_maximum_radius_default)
+        );
+
+        List<Country> countries = new ArrayList<>();
+
+        try {
+            countries = Utils.generateCountryList(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Double latitude = 0.0;
+        Double longitude = 0.0;
+        for (Country country : countries) {
+            if(country.getName().equalsIgnoreCase(region)){
+                latitude = country.getLatitude();
+                longitude = country.getLongitude();
+            }
+        }
+
         Uri baseUri = Uri.parse(USGS_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
@@ -234,13 +262,17 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
+        if(latitude != 0.0 && longitude != 0.0){
+            uriBuilder.appendQueryParameter("latitude", String.valueOf(latitude.intValue()));
+            uriBuilder.appendQueryParameter("longitude", String.valueOf(longitude.intValue()));
+            uriBuilder.appendQueryParameter("maxradius", radius);
+        }
+
         return new EarthquakeLoader(this, uriBuilder.toString());
     }
 
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
@@ -249,21 +281,12 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         // Set empty state text to display "No earthquakes found."
         mEmptyStateTextView.setText(R.string.no_earthquakes);
 
-        String region = sharedPrefs.getString(
-                getString(R.string.settings_narrow_by_region_key),
-                getString(R.string.settings_narrow_by_region_default)
-        );
-
-        List<Earthquake> filteredByRegionEarthquake = Utils.filterByRegion(earthquakes, region);
-
         // Clear the adapter of previous earthquake data
         mAdapter.clear();
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
-        if (filteredByRegionEarthquake != null && !filteredByRegionEarthquake.isEmpty()) {
-            mAdapter.addAll(filteredByRegionEarthquake);
-        }
+        mAdapter.addAll(earthquakes);
     }
 
     @Override
