@@ -11,17 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public final class Utils {
-    public static List<Earthquake> filterByRegion(List<Earthquake> earthquakes, String region) {
-        List<Earthquake> filteredByRegionEarthquake = new ArrayList<>();
-
-        for(int i = 0; i < earthquakes.size(); i++){
-            if(earthquakes.get(i).getLocation().contains(region)){
-                filteredByRegionEarthquake.add(earthquakes.get(i));
-            }
-        }
-
-        return filteredByRegionEarthquake;
-    }
 
     public static List<Country> generateCountryList(Context context) throws IOException {
         List<Country> countries = new ArrayList<>();
