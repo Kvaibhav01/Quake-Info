@@ -1,39 +1,39 @@
 package com.theQuake.quakeInfo;
 
 public class Country {
-    private String acronym;
-    private long latitude;
-    private long longitude;
+    private String country;
+    private Double latitude;
+    private Double longitude;
     private String name;
 
-    public Country(String acronym, long latitude, long longitude, String name){
-        this.acronym = acronym;
+    public Country(String country, Double latitude, Double longitude, String name){
+        this.country = country;
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
     }
 
-    public String getAcronym() {
-        return acronym;
+    public String getCountry() {
+        return country;
     }
 
-    public void setAcronym(String acronym) {
-        this.acronym = acronym;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public long getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public long getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

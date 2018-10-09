@@ -27,6 +27,11 @@
     <string name="settings_narrow_by_region_key" translatable="false">narrow_by_region</string>
     <string name="settings_narrow_by_region_default" translatable="false">Japan</string>
 
+    <!-- Strings For Maximum Radius Preference [CHAR LIMIT=NONE] -->
+    <string name="settings_maximum_radius_label">Maximum Region Radius</string>
+    <string name="settings_maximum_radius_key" translatable="false">maximum_radius</string>
+    <string name="settings_maximum_radius_default" translatable="false">180</string>
+
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order_by</string>

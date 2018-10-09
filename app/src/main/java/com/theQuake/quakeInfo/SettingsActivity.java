@@ -37,6 +37,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference narrowByRegion = findPreference(getString(R.string.settings_narrow_by_region_key));
             bindPreferenceSummaryToValue(narrowByRegion);
+
+            Preference maximumRadius = findPreference(getString(R.string.settings_maximum_radius_key));
+            bindPreferenceSummaryToValue(maximumRadius);
         }
 
         @Override

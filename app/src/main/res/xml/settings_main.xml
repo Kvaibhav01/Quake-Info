@@ -24,4 +24,11 @@
         android:selectAllOnFocus="true"
         android:title="@string/settings_narrow_by_region_label" />
 
+    <EditTextPreference
+        android:defaultValue="@string/settings_maximum_radius_default"
+        android:inputType="numberDecimal"
+        android:key="@string/settings_maximum_radius_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_maximum_radius_label" />
+
 </PreferenceScreen>
