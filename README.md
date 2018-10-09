@@ -12,7 +12,7 @@ The Quake Info app provides the updated list of earthquake occurrences happening
 4. **Real-time notifications**: Want to get the earthquake alert? The [Earthquake Notification Service (ENS)](https://earthquake.usgs.gov/ens/) from USGS can send you automated notification emails when earthquakes happen in your area. 
 5. **Did you feel it?**: This feature shows how many people felt the specific earthquake in their region with its magnitude, perceived strength and location. [Note]: _This feature is still in beta._
 
-Ah, I forgot to mention that it's optimized for Android (8.0) Oreo (the app has an adaptive icon!) and it comes with a sweet intro to give you a small tutorial.
+Ah, I forgot to mention that comes with a sweet intro to give you a small tutorial. 😋
 
 ===================================
 
@@ -23,6 +23,17 @@ Ah, I forgot to mention that it's optimized for Android (8.0) Oreo (the app has 
 3. [LovelyDialog](https://github.com/yarolegovich/LovelyDialog) by [yarolegovich](https://github.com/yarolegovich) to alert user while in earthquake notification activity.
 
 ===================================
+
+### Quake Info 2.0 Checklist
+#### We're working to make the next major release of the app. Some of the key features includes:
+
+- [x] Filter for region (country) specific earthquakes
+- [x] Filter with region maximum radius
+- [ ] Adding a nav drawer for the options
+- [ ] Adding a RSS news feed
+- [ ] Adding dark theme
+- [ ] Adding pull-to-refresh earthquake list
+- [ ] Shake to send bug report
 
 **Special thanks to [USGS](https://github.com/usgs) for providing [API documentation](https://earthquake.usgs.gov/fdsnws/event/1/) and Udacity for developing [Android Basics: Networking course](https://www.udacity.com/course/android-basics-networking--ud843) to fetch JSON data.**
 
