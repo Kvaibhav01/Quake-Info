@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:divider="@null"
         android:dividerHeight="1dp"/>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    
 
     <!-- Empty view is only visible when the list has no items. -->
     <TextView
