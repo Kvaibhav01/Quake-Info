@@ -60,7 +60,6 @@
     <string name="info_message">This feature is still in beta. Therefore, we are loading an example template from USGS. Check for future updates!</string>
     <string name="info_of_notif_title">Get started with alerts</string>
     <string name="info_of_notif_message">Just tap on \"Try ENS or Subscribe\" button and enter your email in the next page.</string>
-    <string name="list_refreshed">List Refreshed</string>
 
 
 </resources>
