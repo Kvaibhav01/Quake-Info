@@ -7,7 +7,8 @@
     <item
         android:id="@+id/action_about"
         android:orderInCategory="2"
-        android:title="@string/about" />
+        android:title="@string/about"
+        android:visible="false"/>
 
     <item
         android:id="@+id/action_settings"
@@ -18,18 +19,22 @@
 
     <item
         android:id="@+id/action_did_you_feel_it"
-        android:title="@string/did_you_feel_it" />
+        android:title="@string/did_you_feel_it"
+        android:visible="false"/>
 
     <item
         android:id="@+id/action_more_apps"
-        android:title="@string/more_apps"/>
+        android:title="@string/more_apps"
+        android:visible="false"/>
 
     <item
         android:id="@+id/fork_project"
-        android:title="@string/fork_on_github"/>
+        android:title="@string/fork_on_github"
+        android:visible="false"/>
 
     <item
         android:id="@+id/notification"
-        android:title="@string/get_notification_alert"/>
+        android:title="@string/get_notification_alert"
+        android:visible="false"/>
 
 </menu>

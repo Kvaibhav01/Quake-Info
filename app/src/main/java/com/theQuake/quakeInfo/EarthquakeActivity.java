@@ -33,6 +33,10 @@ import com.eggheadgames.aboutbox.AboutConfig;
 import com.eggheadgames.aboutbox.IAnalytic;
 import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 
 import java.io.IOException;
@@ -74,14 +78,21 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     private static final String EMAIL_BODY = "Please explain your experience with this app here...This may include bugs" +
             " or issues you may be facing or what you liked about the app along with improvements. :) (MAKE SURE to clear out these lines before sending the mail to us)";
 
+    private Drawer mDrawer;
+
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.earthquake_activity);
+        setContentView(R.layout.main);
 
-        swipe = findViewById(R.id.swiperefresh);
+        toolbar = (Toolbar) findViewById(R.id.toolbarMain);
+        setSupportActionBar(toolbar);
+
+        setUpDrawer();
+
+        swipe = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         swipe.setOnRefreshListener(this);
         swipe.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
 
@@ -377,5 +388,57 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
         getSupportLoaderManager().restartLoader(EARTHQUAKE_LOADER_ID, null, this);
         Toast.makeText(this, R.string.list_refreshed, Toast.LENGTH_SHORT).show();
 
+    }
+
+    private void setUpDrawer() {
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(R.id.action_did_you_feel_it).withName(R.string.did_you_feel_it);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(R.id.action_more_apps).withName(R.string.more_apps);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(R.id.fork_project).withName(R.string.fork_on_github);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(R.id.notification).withName(R.string.get_notification_alert);
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(R.id.action_about).withName(R.string.about);
+
+        mDrawer = new DrawerBuilder().withActivity(this)
+                .withTranslucentStatusBar(false)
+                .withToolbar(toolbar)
+                .addDrawerItems(item1, item2, item3, item4, item5)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        long id = drawerItem.getIdentifier();
+
+                        if (id == R.id.action_about) {
+                            Intent actionIntent = new Intent(EarthquakeActivity.this, AboutActivity.class);
+                            startActivity(actionIntent);
+                            mDrawer.closeDrawer();
+                            return true;
+                        }
+                        if (id == R.id.action_did_you_feel_it) {
+                            Intent feelItIntent = new Intent(EarthquakeActivity.this, DidYouFeel.class);
+                            startActivity(feelItIntent);
+                            mDrawer.closeDrawer();
+                            return true;
+                        }
+                        if (id == R.id.action_more_apps) {
+                            Uri uri = Uri.parse("https://play.google.com/store/apps/developer?id=Vaibhav+Khulbe");
+                            startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                            mDrawer.closeDrawer();
+                            return true;
+                        }
+                        if (id == R.id.fork_project) {
+                            Uri uri = Uri.parse("https://github.com/Kvaibhav01/Quake-Info");
+                            startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                            mDrawer.closeDrawer();
+                            return true;
+                        }
+                        if (id == R.id.notification) {
+                            Intent notificationIntent = new Intent(EarthquakeActivity.this, EarthquakeNotification.class);
+                            startActivity(notificationIntent);
+                            mDrawer.closeDrawer();
+                            return true;
+                        }
+                        return false;
+                    }
+                })
+                .build();
     }
 }
