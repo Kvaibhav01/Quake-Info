@@ -391,11 +391,11 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     }
 
     private void setUpDrawer() {
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(R.id.action_did_you_feel_it).withName(R.string.did_you_feel_it);
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(R.id.action_more_apps).withName(R.string.more_apps);
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(R.id.fork_project).withName(R.string.fork_on_github);
-        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(R.id.notification).withName(R.string.get_notification_alert);
-        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(R.id.action_about).withName(R.string.about);
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(R.id.action_did_you_feel_it).withName(R.string.did_you_feel_it).withIcon(R.drawable.ic_feel_it);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(R.id.action_more_apps).withName(R.string.more_apps).withIcon(R.drawable.ic_more_apps);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(R.id.fork_project).withName(R.string.fork_on_github).withIcon(R.drawable.ic_fork_project);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(R.id.notification).withName(R.string.get_notification_alert).withIcon(R.drawable.ic_notifications);
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(R.id.action_about).withName(R.string.about).withIcon(R.drawable.ic_about);
 
         mDrawer = new DrawerBuilder().withActivity(this)
                 .withTranslucentStatusBar(false)
