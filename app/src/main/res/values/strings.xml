@@ -61,6 +61,6 @@
     <string name="info_of_notif_title">Get started with alerts</string>
     <string name="info_of_notif_message">Just tap on \"Try ENS or Subscribe\" button and enter your email in the next page.</string>
     <string name="list_refreshed">List Refreshed</string>
-
-
+<string name="navigation_drawer_open">Open navgation drawer</string>
+<string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.theQuake.quakeInfo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -20,6 +20,7 @@ public class EarthquakeNotification extends AppCompatActivity {
         setContentView(R.layout.earthquake_notification);
 
         WebView myWebView = findViewById(R.id.webview);
+        myWebView=(WebView)findViewById(R.id.webview);
         myWebView.loadUrl("https://earthquake.usgs.gov/ens/");
         myWebView.setWebViewClient(new WebViewClient());
 

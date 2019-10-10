@@ -2,48 +2,48 @@ package com.theQuake.quakeInfo;
 
 
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.content.Context;
 import android.content.Intent;
-
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-
+import androidx.annotation.RequiresApi;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.eggheadgames.aboutbox.AboutConfig;
 import com.eggheadgames.aboutbox.IAnalytic;
 import com.eggheadgames.aboutbox.IDialog;
 import com.eggheadgames.aboutbox.activity.AboutActivity;
 
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class EarthquakeActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, SwipeRefreshLayout.OnRefreshListener, LoaderManager.LoaderCallbacks<List<Earthquake>> {
     public static final String MyPrefs = "MyPrefs";
 
-    /** URL for earthquake data from the USGS dataset */
+    /**
+     * URL for earthquake data from the USGS dataset
+     */
     private static final String USGS_REQUEST_URL =
             "https://earthquake.usgs.gov/fdsnws/event/1/query";
 
@@ -53,10 +53,14 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
      */
     private static final int EARTHQUAKE_LOADER_ID = 1;
 
-    /** Adapter for the list of earthquakes */
+    /**
+     * Adapter for the list of earthquakes
+     */
     private EarthquakeAdapter mAdapter;
 
-    /** TextView that is displayed when the list is empty */
+    /**
+     * TextView that is displayed when the list is empty
+     */
     private TextView mEmptyStateTextView;
 
     SwipeRefreshLayout swipe;
@@ -75,13 +79,19 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
             " or issues you may be facing or what you liked about the app along with improvements. :) (MAKE SURE to clear out these lines before sending the mail to us)";
 
     Toolbar toolbar;
+    private Drawer mdrawer;
 
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
-
+        setContentView(R.layout.main);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setUpDrawer();
         swipe = findViewById(R.id.swiperefresh);
+        swipe = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         swipe.setOnRefreshListener(this);
         swipe.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
 
@@ -140,10 +150,8 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     }
 
 
-
     /*Code to launch About activity */
-    public void initAboutActivity()
-    {
+    public void initAboutActivity() {
         /* Create About activity */
         AboutConfig aboutConfig = AboutConfig.getInstance();
         aboutConfig.appName = getString(R.string.app_name);
@@ -194,7 +202,7 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (key.equals(getString(R.string.settings_min_magnitude_key)) ||
-                key.equals(getString(R.string.settings_order_by_key))){
+                key.equals(getString(R.string.settings_order_by_key))) {
             // Clear the ListView as a new query will be kicked off
             mAdapter.clear();
 
@@ -244,7 +252,7 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
         Double latitude = 0.0;
         Double longitude = 0.0;
         for (Country country : countries) {
-            if(country.getName().equalsIgnoreCase(region)){
+            if (country.getName().equalsIgnoreCase(region)) {
                 latitude = country.getLatitude();
                 longitude = country.getLongitude();
             }
@@ -258,7 +266,7 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
         uriBuilder.appendQueryParameter("minmag", minMagnitude);
         uriBuilder.appendQueryParameter("orderby", orderBy);
 
-        if(latitude != 0.0 && longitude != 0.0){
+        if (latitude != 0.0 && longitude != 0.0) {
             uriBuilder.appendQueryParameter("latitude", String.valueOf(latitude.intValue()));
             uriBuilder.appendQueryParameter("longitude", String.valueOf(longitude.intValue()));
             uriBuilder.appendQueryParameter("maxradius", radius);
@@ -269,8 +277,7 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     }
 
 
-
-
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
         swipe.setRefreshing(false);
@@ -278,7 +285,6 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
-
 
 
         if (earthquakes != null && !earthquakes.isEmpty()) {
@@ -297,6 +303,7 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     /**
      * method to show results
      */
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     private void showResults(List<Earthquake> earthquakeList) {
         mAdapter.clear();
         earthquakeListView.setVisibility(View.VISIBLE);
@@ -329,53 +336,68 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent settingsIntent = new Intent(this, SettingsActivity.class);
-            startActivity(settingsIntent);
-            return true;
-        }
-        if (id == R.id.action_about) {
-            Intent actionIntent = new Intent(this, AboutActivity.class);
-            startActivity(actionIntent);
-            return true;
-        }
-        if (id == R.id.action_did_you_feel_it){
-
-            Intent feelItIntent = new Intent(this, DidYouFeel.class);
-            startActivity(feelItIntent);
-            return true;
-        }
-        if (id == R.id.action_more_apps){
-
-            Uri uri = Uri.parse( "https://play.google.com/store/apps/developer?id=Vaibhav+Khulbe" );
-            startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
-        }
-        if (id == R.id.fork_project){
-
-            Uri uri = Uri.parse( "https://github.com/Kvaibhav01/Quake-Info" );
-            startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
-        }
-
-        if (id == R.id.notification){
-
-            Intent notificationIntent = new Intent(this, EarthquakeNotification.class);
-            startActivity(notificationIntent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
     @Override
     public void onRefresh() {
         getSupportLoaderManager().restartLoader(EARTHQUAKE_LOADER_ID, null, this);
         Toast.makeText(this, R.string.list_refreshed, Toast.LENGTH_SHORT).show();
 
     }
+
+
+    private void setUpDrawer() {
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(R.id.action_did_you_feel_it).withName(R.string.did_you_feel_it);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(R.id.action_more_apps).withName(R.string.more_apps);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(R.id.fork_project).withName(R.string.fork_on_github);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(R.id.notification).withName(R.string.get_notification_alert);
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(R.id.action_about).withName(R.string.about);
+
+        mdrawer = new DrawerBuilder().withActivity(this).withTranslucentStatusBar(false)
+                .withToolbar(toolbar)
+                .addDrawerItems(item1, item2, item3, item4, item5)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        int id = (int)drawerItem.getIdentifier();
+                       switch (id) {
+                           case R.id.action_about:
+                               Intent actionIntent = new Intent(EarthquakeActivity.this, AboutActivity.class);
+                               startActivity(actionIntent);
+                               mdrawer.closeDrawer();
+                               return true;
+
+                           case R.id.action_did_you_feel_it:
+                               Intent feelItIntent = new Intent(EarthquakeActivity.this, DidYouFeel.class);
+                               startActivity(feelItIntent);
+                               mdrawer.closeDrawer();
+                               return true;
+
+                           case R.id.action_more_apps:
+                               Uri uri = Uri.parse("https://play.google.com/store/apps/developer?id=Vaibhav+Khulbe");
+                               startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                               mdrawer.closeDrawer();
+                               return true;
+
+
+                           case R.id.fork_project:
+                               uri = Uri.parse("https://github.com/Kvaibhav01/Quake-Info");
+                               startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                               mdrawer.closeDrawer();
+                               return true;
+
+
+                           case R.id.notification:
+                               Intent notificationIntent = new Intent(EarthquakeActivity.this, EarthquakeNotification.class);
+                               startActivity(notificationIntent);
+                               mdrawer.closeDrawer();
+                               return true;
+
+                       }
+                        return false;
+                    }
+                })
+                .build();
+    }
+
 }
+

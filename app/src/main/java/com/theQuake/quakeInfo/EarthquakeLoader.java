@@ -4,7 +4,7 @@ package com.theQuake.quakeInfo;
  * Created by kvaib on 17-11-2017.
  */
 
-import android.support.v4.content.AsyncTaskLoader;
+import androidx.loader.content.AsyncTaskLoader;
 import android.content.Context;
 
 import java.util.List;

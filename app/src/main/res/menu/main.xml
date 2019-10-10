@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.android.quakeInfo.com.theQuake.quakeInfo.EarthquakeActivity">
+    tools:context="com.android.quakeInfo.com.theQuake.quakeInfo.EarthquakeActivity"
+    tools:showIn="navigation_view">
 
     <item
         android:id="@+id/action_about"
@@ -11,25 +12,30 @@
 
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/ic_filter"
+        android:icon="@drawable/ic_settings"
         android:orderInCategory="1"
         android:title="@string/settings_menu_item"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_did_you_feel_it"
+        android:icon="@drawable/ic_did_u_feel_it"
         android:title="@string/did_you_feel_it" />
 
     <item
         android:id="@+id/action_more_apps"
+        android:icon="@drawable/ic_more_apps"
         android:title="@string/more_apps"/>
 
     <item
         android:id="@+id/fork_project"
+        android:icon="@drawable/ic_fork"
         android:title="@string/fork_on_github"/>
 
     <item
         android:id="@+id/notification"
+        android:icon="@drawable/ic_notifications_alert"
         android:title="@string/get_notification_alert"/>
+
 
 </menu>
