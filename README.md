@@ -29,10 +29,10 @@ Ah, I forgot to mention that comes with a sweet intro to give you a small tutori
 
 - [x] Filter for region (country) specific earthquakes
 - [x] Filter with region maximum radius
-- [ ] Adding a nav drawer for the options
+- [x] Adding a nav drawer for the options
 - [ ] Adding a RSS news feed
 - [ ] Adding dark theme
-- [ ] Adding pull-to-refresh earthquake list
+- [x] Adding pull-to-refresh earthquake list
 - [ ] Shake to send bug report
 
 **Special thanks to [USGS](https://github.com/usgs) for providing [API documentation](https://earthquake.usgs.gov/fdsnws/event/1/) and Udacity for developing [Android Basics: Networking course](https://www.udacity.com/course/android-basics-networking--ud843) to fetch JSON data.**
