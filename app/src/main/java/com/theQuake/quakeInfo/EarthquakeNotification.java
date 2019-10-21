@@ -19,7 +19,7 @@ public class EarthquakeNotification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_notification);
 
-        WebView myWebView = findViewById(R.id.webview);
+        WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.loadUrl("https://earthquake.usgs.gov/ens/");
         myWebView.setWebViewClient(new WebViewClient());
 
