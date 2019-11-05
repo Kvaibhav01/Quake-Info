@@ -5,6 +5,40 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textColor">#000000</item>
+        <item name="backgroundColor">#F5FFFFFF</item>
+    </style>
+
+    <style name="AppThemeDarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#140F22</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="textColor">#FFFFFF</item>
+        <item name="backgroundColor">#E9252525</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeNormal" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="textColor">#000000</item>
+        <item name="secondaryTextColor">@color/textColorEarthquakeLocation</item>
+        <item name="backgroundColor">#F5FFFFFF</item>
+        <item name="cardBackground">#E9FFFFFF</item>
+        <item name="tintColor">#E12E2E2E</item>
+    </style>
+
+    <!-- Base application dark theme. -->
+    <style name="AppThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#140F22</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="textColor">#FFFFFF</item>
+        <item name="secondaryTextColor">#FFFFFF</item>
+        <item name="backgroundColor">#E9252525</item>
+        <item name="cardBackground">#F51F1F1F</item>
+        <item name="tintColor">#E12E2E2E</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

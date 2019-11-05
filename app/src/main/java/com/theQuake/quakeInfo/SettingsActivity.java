@@ -15,9 +15,18 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    //private EarthquakeActivity earthquakeActivity = new EarthquakeActivity();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getCurrentTheme().equals("Off")) {
+            setTheme(R.style.AppTheme);
+        }
+        else
+            setTheme(R.style.AppThemeDarkActionBar);
+
         setContentView(R.layout.settings_activity);
     }
 
@@ -40,6 +49,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference maximumRadius = findPreference(getString(R.string.settings_maximum_radius_key));
             bindPreferenceSummaryToValue(maximumRadius);
+
+            Preference darkTheme = findPreference(getString(R.string.settings_dark_theme));
+            bindPreferenceSummaryToValue(darkTheme);
         }
 
         @Override
@@ -65,5 +77,12 @@ public class SettingsActivity extends AppCompatActivity {
             String preferenceString = preferences.getString(preference.getKey(), "");
             onPreferenceChange(preference, preferenceString);
         }
+    }
+
+    public String getCurrentTheme() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString(
+                getString(R.string.settings_dark_theme),
+                getString(R.string.settings_dark_theme_off));
     }
 }

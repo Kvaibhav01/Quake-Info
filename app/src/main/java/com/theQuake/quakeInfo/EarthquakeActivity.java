@@ -2,6 +2,7 @@ package com.theQuake.quakeInfo;
 
 
 
+import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.content.Context;
 import android.content.Intent;
@@ -37,6 +38,7 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialize.color.Material;
 
 
 import java.io.IOException;
@@ -85,12 +87,28 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getCurrentTheme().equals("Off")) {
+            setTheme(R.style.AppThemeNormal);
+        }
+        else
+            setTheme(R.style.AppThemeDark);
+
         setContentView(R.layout.main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
 
-        setUpDrawer();
+        if (getCurrentTheme().equals("Off")) {
+            setUpDrawer(Color.WHITE,
+                    getResources().getColor(R.color.drawer_dark_selected),
+                    getResources().getColor(R.color.drawer_dark_selected),
+                    R.color.primary_dark);
+        } else
+            setUpDrawer(getResources().getColor(R.color.drawer_dark_background),
+                    Color.WHITE,
+                    Color.WHITE,
+                    R.color.drawer_dark_background);
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         swipe.setOnRefreshListener(this);
@@ -279,9 +297,6 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
         return new EarthquakeLoader(this, url);
     }
 
-
-
-
     @Override
     public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
         swipe.setRefreshing(false);
@@ -387,20 +402,21 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     public void onRefresh() {
         getSupportLoaderManager().restartLoader(EARTHQUAKE_LOADER_ID, null, this);
         Toast.makeText(this, R.string.list_refreshed, Toast.LENGTH_SHORT).show();
-
     }
 
-    private void setUpDrawer() {
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(R.id.action_did_you_feel_it).withName(R.string.did_you_feel_it).withIcon(R.drawable.ic_feel_it);
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(R.id.action_more_apps).withName(R.string.more_apps).withIcon(R.drawable.ic_more_apps);
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(R.id.fork_project).withName(R.string.fork_on_github).withIcon(R.drawable.ic_fork_project);
-        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(R.id.notification).withName(R.string.get_notification_alert).withIcon(R.drawable.ic_notifications);
-        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(R.id.action_about).withName(R.string.about).withIcon(R.drawable.ic_about);
+    private void setUpDrawer(int backgroundColor, int textColor, int iconColor, int selectedTextColor) {
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(R.id.action_did_you_feel_it).withName(R.string.did_you_feel_it).withIcon(R.drawable.ic_feel_it).withTextColor(textColor).withSelectedTextColor(selectedTextColor).withIconTintingEnabled(true).withIconColor(iconColor).withSelectedBackgroundAnimated(false);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(R.id.action_more_apps).withName(R.string.more_apps).withIcon(R.drawable.ic_more_apps).withTextColor(textColor).withSelectedTextColor(selectedTextColor).withIconTintingEnabled(true).withIconColor(iconColor);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(R.id.fork_project).withName(R.string.fork_on_github).withIcon(R.drawable.ic_fork_project).withTextColor(textColor).withSelectedTextColor(selectedTextColor).withIconTintingEnabled(true).withIconColor(iconColor);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(R.id.notification).withName(R.string.get_notification_alert).withIcon(R.drawable.ic_notifications).withTextColor(textColor).withSelectedTextColor(selectedTextColor).withIconTintingEnabled(true).withIconColor(iconColor);
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(R.id.action_about).withName(R.string.about).withIcon(R.drawable.ic_about).withTextColor(textColor).withSelectedTextColor(selectedTextColor).withIconTintingEnabled(true).withIconColor(iconColor);
+        PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(R.id.action_settings).withName(R.string.settings_menu_item).withIcon(R.drawable.ic_settings_new).withTextColor(textColor).withSelectedTextColor(selectedTextColor).withIconTintingEnabled(true).withIconColor(iconColor);
 
         mDrawer = new DrawerBuilder().withActivity(this)
                 .withTranslucentStatusBar(false)
                 .withToolbar(toolbar)
-                .addDrawerItems(item1, item2, item3, item4, item5)
+                .withSliderBackgroundColor(backgroundColor)
+                .addDrawerItems(item1, item2, item3, item4, item5, item6)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -436,9 +452,31 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
                             mDrawer.closeDrawer();
                             return true;
                         }
+                        if (id == R.id.action_settings) {
+                            Intent notificationIntent = new Intent(EarthquakeActivity.this, SettingsActivity.class);
+                            startActivity(notificationIntent);
+                            mDrawer.closeDrawer();
+                            return true;
+                        }
                         return false;
                     }
                 })
                 .build();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawer.isDrawerOpen())
+            mDrawer.closeDrawer();
+        else
+            super.onBackPressed();
+    }
+
+    private String getCurrentTheme() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString(
+                getString(R.string.settings_dark_theme),
+                getString(R.string.settings_dark_theme_off));
+    }
+
 }

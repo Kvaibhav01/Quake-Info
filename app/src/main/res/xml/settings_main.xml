@@ -31,4 +31,13 @@
         android:selectAllOnFocus="true"
         android:title="@string/settings_maximum_radius_label" />
 
+    <ListPreference
+        android:defaultValue="@string/settings_dark_theme_off"
+        android:entries="@array/settings_dark_theme"
+        android:entryValues="@array/settings_dark_theme"
+        android:key="@string/settings_dark_theme"
+        android:title="@string/settings_dark_theme" />
+
+
+
 </PreferenceScreen>
