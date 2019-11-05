@@ -453,8 +453,8 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
                             return true;
                         }
                         if (id == R.id.action_settings) {
-                            Intent notificationIntent = new Intent(EarthquakeActivity.this, SettingsActivity.class);
-                            startActivity(notificationIntent);
+                            Intent settingsIntent = new Intent(EarthquakeActivity.this, SettingsActivity.class);
+                            startActivity(settingsIntent);
                             mDrawer.closeDrawer();
                             return true;
                         }
@@ -473,7 +473,7 @@ public class EarthquakeActivity extends AppCompatActivity implements SharedPrefe
     }
 
     private String getCurrentTheme() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         return sharedPreferences.getString(
                 getString(R.string.settings_dark_theme),
                 getString(R.string.settings_dark_theme_off));
