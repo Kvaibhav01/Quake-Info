@@ -60,5 +60,8 @@
     <color name="slide5_bg">#1359bc</color>
     <color name="slide5_btn">#607D8B</color>
 
+    <color name="drawer_dark_background">#252525</color>
+    <color name="drawer_dark_selected">#4D4D4D</color>
+    <color name="drawer_normal_selected">#696969</color>
 
 </resources>

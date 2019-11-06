@@ -32,10 +32,15 @@
     <string name="settings_maximum_radius_key" translatable="false">maximum_radius</string>
     <string name="settings_maximum_radius_default" translatable="false">180</string>
 
-    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <!-- Strings For Order-By Preference [CHAR LIMIT=NONE] -->
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order_by</string>
     <string name="settings_order_by_default" translatable="false">@string/settings_order_by_magnitude_value</string>
+
+    <!-- Strings For Dark Theme Preference [CHAR LIMIT=30] -->
+    <string name="settings_dark_theme">Dark Theme</string>
+    <string name="settings_dark_theme_off" translatable="false">Off</string>
+    <string name="settings_dark_theme_on" translatable="false">On</string>
 
     <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
     <string name="settings_order_by_magnitude_label">Magnitude</string>
